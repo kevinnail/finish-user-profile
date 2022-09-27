@@ -93,7 +93,7 @@ nav a {
 
 main {
     padding: var(--padding);
-    background-color: black;
+    background-color: rgb(142, 142, 142);
 }
 
 .avatar {
