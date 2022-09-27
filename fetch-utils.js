@@ -31,25 +31,21 @@ export async function signOutUser() {
 
 export async function updateProfile(profile) {
     // > Part A: upsert into profiles table
-    const response = await client
-        .from('profiles')
-        .upsert(profile)
-        .single();
+    const response = await client.from('profiles').upsert(profile).single();
+    console.log('response ', response);
+    console.log('firing');
     return response;
 }
 
 export async function getProfile(id) {
     // > Part B: get profile by id, maybe single row returned
-    const response = await client
-        .from('profiles')
-        .select('*')
-        .eq('id', id)
-        .maybeSingle();
+    const response = await client.from('profiles').select('*').eq('id', id).maybeSingle();
     return response;
 }
 
 export async function getProfiles() {
     // > Part D: get all profiles (limit 100)
+    return await client.from('profiles').select().limit(100);
 }
 
 // TODO:

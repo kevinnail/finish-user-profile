@@ -36,7 +36,7 @@ window.addEventListener('load', async () => {
 profileForm.addEventListener('submit', async (e) => {
     // keep the form from changing the browser page
     e.preventDefault();
-
+    console.log('form submitted');
     // niceties for "saving" and errors:
     // reset the error
     errorDisplay.textContent = '';
@@ -56,7 +56,8 @@ profileForm.addEventListener('submit', async (e) => {
     };
     //      - call updateProfile passing in profile update object, capture the response
     // const response = null; // ??????
-    const response = updateProfile(profileUpdate);
+    const response = await updateProfile(profileUpdate);
+    console.log('response: ', response);
     error = response.error;
 
     // did it work?
